@@ -23,11 +23,20 @@ demoControllers.controller('SecondController', ['$scope', 'CommonData' , functio
 }]);
 
 
-demoControllers.controller('LlamaListController', ['$scope', '$http', 'Llamas', '$window' , function($scope, $http,  Llamas, $window) {
+demoControllers.controller('UserListController', ['$scope', '$http', 'Users', '$window' , function($scope, $http,  Users, $window) {
 
-  Llamas.get().success(function(data){
-    $scope.llamas = data;
+  Users.get().success(function(data){
+    $scope.users = data;
   });
+
+
+}]);
+
+demoControllers.controller('TaskListController', ['$scope', '$http', 'Tasks', '$window' , function($scope, $http,  Tasks, $window) {
+
+    Tasks.get().success(function(data){
+        $scope.tasks = data;
+    });
 
 
 }]);

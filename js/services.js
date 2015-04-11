@@ -11,11 +11,19 @@ angular.module('demoServices', [])
             }
         }
     })
-    .factory('Llamas', function($http, $window) {      
+    .factory('Users', function($http, $window) {
         return {
             get : function() {
                 var baseUrl = $window.sessionStorage.baseurl;
-                return $http.get(baseUrl+'/api/llamas');
+                return $http.get(baseUrl+'/api/users');
+            }
+        }
+    })
+    .factory('Tasks', function($http, $window) {
+        return {
+            get : function() {
+                var baseUrl = $window.sessionStorage.baseurl;
+                return $http.get(baseUrl+'/api/tasks');
             }
         }
     })
