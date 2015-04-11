@@ -11,20 +11,13 @@ angular.module('demoServices', [])
             }
         }
     })
-    .factory('Users', function($http, $window) {
-        return {
-            get : function() {
-                var baseUrl = $window.sessionStorage.baseurl;
-                return $http.get(baseUrl+'/api/users');
-            }
-        }
-    })
-    .factory('Tasks', function($http, $window) {
-        return {
-            get : function() {
-                var baseUrl = $window.sessionStorage.baseurl;
-                return $http.get(baseUrl+'/api/tasks');
-            }
-        }
-    })
+    .factory('Users', ['$http', function($http){
+        var baseUrl = $window.sessionStorage.baseurl;
+        return $http.get(baseUrl+'/api/users');
+    }])
+
+    .factory('Tasks', ['$http', function($http){
+        var baseUrl = $window.sessionStorage.baseurl;
+        return $http.get(baseUrl+'/api/tasks');
+    }])
     ;
